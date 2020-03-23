@@ -1,6 +1,6 @@
 # Michael Suter
 # using stack, apply it to scenario
-#3-10-20
+# 3-10-20
 
 from StackQ import Stack
 
@@ -24,7 +24,7 @@ def menu():
                 sell_amount = int(input(f"How many cases of paper do you want to sell out of the {inventory} in the inventory? >>"))
                 sell_price = 22
                 total_sale = sell_amount * sell_price
-                revenue = cost - total_sale
+                print(f"You just sold {sell_amount} cases for {total_sale}")
                 inventory = inventory - sell_amount
                 Stack.pop(inventory)
                 return
@@ -35,3 +35,11 @@ def menu():
                 if choice == 4:
                     print(f"There are {inventory} cases available in the inventory")
                     return
+
+print("""Enter 1 to add, 
+    Enter 2 to sell,
+    Enter 3 to see profit, 
+    Enter 4 see the amount of cases in inventory, 
+    Enter 5 to Quit""")
+
+menu()
