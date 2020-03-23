@@ -13,10 +13,11 @@ def menu():
             if choice == 1:
                 print("Disclaimer: The price of producing and shipping a case of paper is $20")
                 add_to_inventory = int(input("How many cases of paper would you like to add to inventory? >>"))
+                inventory = Stack.the_stack
+                inventory = inventory + add_to_inventory
                 price = 20
                 cost = price * inventory
                 print(f"The cost of this order is {cost}")
-                inventory = inventory + add_to_inventory
                 Stack.push(inventory, add_to_inventory)
                 print(f"there are now {inventory} cases of paper in the inventory.")
             elif choice == 2:
@@ -25,6 +26,8 @@ def menu():
                 sell_price = 22
                 total_sale = sell_amount * sell_price
                 print(f"You just sold {sell_amount} cases for {total_sale}")
+                revenue = total_sale - cost
+                print(f"")
                 inventory = inventory - sell_amount
                 Stack.pop(inventory)
                 return
@@ -35,6 +38,7 @@ def menu():
                 if choice == 4:
                     print(f"There are {inventory} cases available in the inventory")
                     return
+
 
 print("""Enter 1 to add, 
     Enter 2 to sell,
