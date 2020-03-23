@@ -2,7 +2,7 @@
 # using stack, apply it to scenario
 #3-10-20
 
-from Stackqueue import Stack
+from StackQ import Stack
 
 
 def menu():
