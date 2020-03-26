@@ -2,7 +2,7 @@
 # Stack method / add or remove from the end
 # 3-5-20
 
-from LinkedList import LinkedList
+from LinkedTail import LinkedListTail
 
 
 class Stack:
@@ -13,15 +13,15 @@ class Stack:
         self.the_stack.append(data)
 
     def pop(self):
-        return
+        return self.the_stack[-1]
 
 
-class Queue(LinkedList):
+class Queue(LinkedListTail):
     def __init__(self):
-        self.myList = LinkedList.__init__(self)
+        self.myList = LinkedListTail.__init__(self)
 
     def push(self, data):
         self.myList.push_end(data)
 
     def pop(self):
-        return self.myList.remove_head()
+        return self.myList.pop_head()
