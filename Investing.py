@@ -30,7 +30,9 @@ def lifo_menu():
             popped = 0
             qty_popped = inventory_qty.pop()
             total_qty -= qty_popped
-
+            price = inventory_price.pop()
+            total_sale += (qty_popped * price)
+            total_popped += qty_popped
             return
         elif choice == 3:
             print(f"Your total profit for the shares entered in this cycle is {total_profit}.")
