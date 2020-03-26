@@ -20,8 +20,8 @@ class Queue(LinkedListTail):
     def __init__(self):
         self.myList = LinkedListTail.__init__(self)
 
-    def push(self, data):
+    def pushy(self, data):
         self.myList.push_end(data)
 
-    def pop(self):
+    def popp(self):
         return self.myList.pop_head()

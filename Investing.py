@@ -2,13 +2,15 @@
 # Assignment 8
 # 3/25/20
 
-from StackQ import Stack
+from StackQ import Stack, Queue
 
 total_qty = 0
 total_profit = 0.0
 total_sold = 0.0
 inventory_qty = Stack()
 inventory_price = Stack()
+queue_inventory_qty = Queue()
+queue_inventory_price = Queue()
 
 
 def lifo_menu():
@@ -25,7 +27,7 @@ def lifo_menu():
         elif choice == 2:
             sell_amount = int(input("How many shares are you planning to sell? >>"))
             if sell_amount > total_qty:
-                print()
+                print("You don't have enough shares...")
             sale = 0.0
             popped = 0
             qty_popped = inventory_qty.pop()
@@ -45,7 +47,26 @@ def lifo_menu():
 
 
 def fifo_menu():
-    return
+    choice = int(input("Enter your choice, between 1-5...>>"))
+    while choice >= 1 or choice <= 5:
+        if choice == 1:
+            qty = int(input("How many shares of this stock have been purchased? >>"))
+            price = float(input("What was the cost per share? >>"))
+            queue_inventory_price.pushy(price)
+            queue_inventory_qty.pushy(qty)
+            print("Successfully added...")
+            total_qty += qty
+        elif choice == 2:
+            return
+        elif choice == 3:
+            print(f"Your total profit for the shares entered in this cycle is {total_profit}.")
+            return
+        elif choice == 4:
+            print(f"Here is the number of shares you have invested {total_qty}")
+            return
+        else:
+            exit("Goodbye")
+
 
 
 def choice1():
