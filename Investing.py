@@ -22,7 +22,7 @@ def lifo_menu():
             inventory_price.push(price)
             inventory_qty.push(qty)
             print("Successfully added...")
-            total_qty += qty
+            total_qty += qty # not sure why this isnt working
             lifo_menu()
         elif choice == 2:
             sell_amount = int(input("How many shares are you planning to sell? >>"))
@@ -30,11 +30,12 @@ def lifo_menu():
                 print("You don't have enough shares...")
             sale = 0.0
             popped = 0
-            qty_popped = inventory_qty.pop()
-            total_qty -= qty_popped
-            price = inventory_price.pop()
-            total_sale += (qty_popped * price)
-            total_popped += qty_popped
+            qty_popped = inventory_qty.pop()  #sends the value popped to the stack
+            total_qty -= qty_popped         # subtracts the qty popped from the running total
+            price = inventory_price.pop()   # adds price to the stack
+            total_sale += (qty_popped * price)  #calculates total sale
+            total_popped += qty_popped   # running total of the total amount popped
+                                        #not to sure where to go after this point
             return
         elif choice == 3:
             print(f"Your total profit for the shares entered in this cycle is {total_profit}.")
@@ -57,6 +58,11 @@ def fifo_menu():
             print("Successfully added...")
             total_qty += qty
         elif choice == 2:
+            sell_amount = int(input("How many shares are you planning to sell? >>"))
+            if sell_amount > total_qty:
+                print("You don't have enough shares...")
+            sale = 0.0
+            popped = 0
             return
         elif choice == 3:
             print(f"Your total profit for the shares entered in this cycle is {total_profit}.")
