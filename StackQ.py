@@ -23,5 +23,5 @@ class Queue(LinkedListTail):
     def pushy(self, data):
         self.myList.push_end(data)
 
-    def popp(self):
+    def pop(self):
         return self.myList.pop_head()
